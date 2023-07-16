@@ -26,6 +26,7 @@ def communicate():
 
     bot_message = response["choices"][0]["message"]
     messages.append(bot_message)
+    temperature=ｙ
 
     st.session_state["user_input"] = ""  # 入力欄を消去
 
@@ -49,7 +50,7 @@ if st.session_state["messages"]:
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
-y = st.sidebar.slider(label='Your Age', min_value=0.0, max_value=2.0, value=1.0)
+y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1.0)
 st.sidebar.write(str(y) + "の2倍は" + str(y*2))
 
 df_side = pd.DataFrame({
