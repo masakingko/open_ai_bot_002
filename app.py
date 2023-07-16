@@ -6,9 +6,9 @@ import openai
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
-if selected_side = "汎用":
+if selected_side == "汎用":
     appset = st.secrets.AppSettings.chatbot_setting
-elif selected_side = "犬":
+elif selected_side == "犬":
     appset = st.secrets.AppSettings.chatbot_setting_dog
 else:
     appset = st.secrets.AppSettings.chatbot_setting
