@@ -13,11 +13,11 @@ if "messages" not in st.session_state:
         ]
 
 if selected_side = "汎用":
-    appset = st.secrets.AppSettings.chatbot_setting
+    appset == st.secrets.AppSettings.chatbot_setting
 elif selected_side = "犬":
-    appset = st.secrets.AppSettings.chatbot_setting_dog
+    appset == st.secrets.AppSettings.chatbot_setting_dog
 else :
-    appset = st.secrets.AppSettings.chatbot_setting
+    appset == st.secrets.AppSettings.chatbot_setting
 
 # チャットボットとやりとりする関数
 def communicate():
