@@ -57,7 +57,7 @@ y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1
 st.sidebar.write(str(y) + "の2倍は" + str(y*2))
 
 df_side = pd.DataFrame({
-    "animal": ["汎用", "犬", "猫", "兎", "象", "蛙"],
+    "animal": ["汎用", "犬", "猫", "兎", "象"],
     "color": ["赤", "青", "黄", "白", "黒"]
     })
 selected_side = st.sidebar.selectbox(
