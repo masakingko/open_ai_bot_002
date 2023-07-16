@@ -7,6 +7,23 @@ import openai
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
 
+# ---------- サイドバー ----------
+st.sidebar.title("st.sidebar")
+
+y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1.0)
+st.sidebar.write(str(y) + "の2倍は" + str(y*2))
+
+df_side = pd.DataFrame({
+    "animal": ["汎用", "犬", "猫", "兎", "象", "蛙"],
+    "color": ["赤", "青", "黄", "白", "黒"]
+    })
+selected_side = st.sidebar.selectbox(
+    "どの動物を選びますか？",
+    df_side["animal"]
+    )
+st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
+
+
 if selected_side == "汎用":
     appset = st.secrets.AppSettings.chatbot_setting
 elif selected_side == "犬":
@@ -57,18 +74,3 @@ if st.session_state["messages"]:
 
         st.write(speaker + ": " + message["content"])
 
-# ---------- サイドバー ----------
-st.sidebar.title("st.sidebar")
-
-y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1.0)
-st.sidebar.write(str(y) + "の2倍は" + str(y*2))
-
-df_side = pd.DataFrame({
-    "animal": ["汎用", "犬", "猫", "兎", "象", "蛙"],
-    "color": ["赤", "青", "黄", "白", "黒"]
-    })
-selected_side = st.sidebar.selectbox(
-    "どの動物を選びますか？",
-    df_side["animal"]
-    )
-st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
