@@ -44,3 +44,9 @@ if st.session_state["messages"]:
             speaker="🤖"
 
         st.write(speaker + ": " + message["content"])
+
+# ---------- サイドバー ----------
+st.sidebar.title("st.sidebar")
+
+y = st.sidebar.slider(label='Your Age', min_value=0, max_value=2, value=1.0)
+st.sidebar.write(str(y) + "の2倍は" + str(y*2))
