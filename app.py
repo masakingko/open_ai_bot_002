@@ -12,12 +12,12 @@ if "messages" not in st.session_state:
         {"role": "system", "content": appset}
         ]
 
-if selected_side = "汎用":
-    appset == st.secrets.AppSettings.chatbot_setting
-elif selected_side = "犬":
-    appset == st.secrets.AppSettings.chatbot_setting_dog
+if selected_side == "汎用":
+    appset = st.secrets.AppSettings.chatbot_setting
+elif selected_side == "犬":
+    appset = st.secrets.AppSettings.chatbot_setting_dog
 else :
-    appset == st.secrets.AppSettings.chatbot_setting
+    appset = st.secrets.AppSettings.chatbot_setting
 
 # チャットボットとやりとりする関数
 def communicate():
