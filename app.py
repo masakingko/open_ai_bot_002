@@ -57,7 +57,7 @@ def communicate():
     st.session_state["user_input"] = ""  # 入力欄を消去
 
 
-# ユーザーインターフェイスの構築
+# ---　ユーザーインターフェイスの構築　---
 st.title("My AI Assistant")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
@@ -68,7 +68,9 @@ if st.session_state["messages"]:
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
-        if message["role"]=="assistant":
+        if message["role"]=="assistant" and selected_side == "犬":
+            speaker="🐶"
+        elif message["role"]=="assistant":
             speaker="🤖"
 
         st.write(speaker + ": " + message["content"])
