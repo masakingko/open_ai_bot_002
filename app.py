@@ -22,11 +22,12 @@ def communicate():
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages
+        temperature=ｙ
     )  
 
     bot_message = response["choices"][0]["message"]
     messages.append(bot_message)
-    temperature=ｙ
+    
 
     st.session_state["user_input"] = ""  # 入力欄を消去
 
