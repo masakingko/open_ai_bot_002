@@ -9,8 +9,15 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": st.secrets.AppSettings.chatbot_setting_dog}
+        {"role": "system", "content": appset}
         ]
+
+if selected_side = "汎用":
+    appset = st.secrets.AppSettings.chatbot_setting
+elif selected_side = "犬":
+    appset = st.secrets.AppSettings.chatbot_setting_dog
+else :
+    appset = st.secrets.AppSettings.chatbot_setting
 
 # チャットボットとやりとりする関数
 def communicate():
@@ -55,7 +62,7 @@ y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1
 st.sidebar.write(str(y) + "の2倍は" + str(y*2))
 
 df_side = pd.DataFrame({
-    "animal": ["犬", "猫", "兎", "象", "蛙"],
+    "animal": ["汎用", "犬", "猫", "兎", "象", "蛙"],
     "color": ["赤", "青", "黄", "白", "黒"]
     })
 selected_side = st.sidebar.selectbox(
