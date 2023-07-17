@@ -9,8 +9,8 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
-y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=1.0)
-st.sidebar.write(str(y) + "の2倍は" + str(y*2))
+y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=0.7)
+st.sidebar.write(値が高いほどランダム性が増します。デフォルト値は0.7です。)
 
 df_side = pd.DataFrame({
     "animal": ["汎用", "犬", "猫", "兎", "象"],
@@ -58,7 +58,7 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-st.title("My AI Assistant")
+st.title("AI Assistant")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
