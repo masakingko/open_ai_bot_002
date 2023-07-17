@@ -5,6 +5,8 @@ import openai
 
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+appset_nomal = st.secrets.AppSettings.chatbot_setting
+appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
@@ -23,11 +25,11 @@ selected_side = st.sidebar.selectbox(
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 if selected_side == "汎用":
-    appset = st.secrets.AppSettings.chatbot_setting
+    appset = appset_nomal
 elif selected_side == "犬":
-    appset = st.secrets.AppSettings.chatbot_setting_dog
+    appset = appset_dog
 else:
-    appset = st.secrets.AppSettings.chatbot_setting
+    appset = appset_nomal
 
 
 # st.session_stateを使いメッセージのやりとりを保存
