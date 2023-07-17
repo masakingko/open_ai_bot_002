@@ -10,7 +10,7 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 st.sidebar.title("st.sidebar")
 
 y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=0.7)
-st.sidebar.write(値が高いほどランダム性が増します。デフォルト値は0.7です。)
+st.sidebar.write("値が高いほどランダム性が増します")
 
 df_side = pd.DataFrame({
     "animal": ["汎用", "犬", "猫", "兎", "象"],
