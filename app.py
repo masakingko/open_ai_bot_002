@@ -11,15 +11,17 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
+# ---------- temperatureの設定 ----------
 y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=0.7)
 st.sidebar.write("値が高いほどランダム性が増します")
 
+# ----------　モデルの設定　----------
 df_side = pd.DataFrame({
     "animal": ["汎用", "犬", "猫", "兎", "象"],
     "color": ["赤", "青", "黄", "白", "黒"]
     })
 selected_side = st.sidebar.selectbox(
-    "どの動物を選びますか？",
+    "どの設定を選びますか？",
     df_side["animal"]
     )
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
