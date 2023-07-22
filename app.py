@@ -97,16 +97,19 @@ if st.session_state["messages"]:
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
-        if message["role"]=="assistant" and str(selected_side) == "犬":
-            speaker = "🐶"
-        elif message["role"]=="assistant" and str(selected_side) == "猫":
-            speaker = "😺"
-        elif message["role"]=="assistant" and str(selected_side) == "兎":
-            speaker = "🐰"
-        elif message["role"]=="assistant" and str(selected_side) == "象":
-            speaker = "🐘"
-        elif message["role"]=="assistant":
-            speaker = "🤖"
+        if message["role"]=="assistant":
+            speaker = str(st.session_state.role)
+        
+        # if message["role"]=="assistant" and str(selected_side) == "犬":
+        #     speaker = "🐶"
+        # elif message["role"]=="assistant" and str(selected_side) == "猫":
+        #     speaker = "😺"
+        # elif message["role"]=="assistant" and str(selected_side) == "兎":
+        #     speaker = "🐰"
+        # elif message["role"]=="assistant" and str(selected_side) == "象":
+        #     speaker = "🐘"
+        # elif message["role"]=="assistant":
+        #     speaker = "🤖"
 
         st.write(speaker + ": " + message["content"])
 
