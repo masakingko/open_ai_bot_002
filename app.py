@@ -8,6 +8,8 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
+a = 1
+
 # モデルのコールバック関数
 def update_appset():
     if selected_side == "汎用":
@@ -20,6 +22,8 @@ def update_appset():
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
+
+    a = 1
     
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
@@ -44,7 +48,7 @@ st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 
 # st.session_stateを使いメッセージのやりとりを保存
-if "messages" not in st.session_state:
+if "messages" not in st.session_state and a=0:
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
