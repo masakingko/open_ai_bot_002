@@ -13,20 +13,6 @@ a = 0
 
 # モデルのコールバック関数
 def update_appset():
-
-    if selected_side == "汎用":
-        appset = appset_nomal
-    elif selected_side == "犬":
-        appset = appset_dog
-    elif selected_side == "猫":
-        appset = appset_cat
-    else:
-        appset = appset_nomal
-    
-    st.session_state["messages"] = [
-        {"role": "system", "content": appset_cat}
-        ]
-
     a = 1
     
 # ---------- サイドバー ----------
@@ -48,13 +34,25 @@ selected_side = st.sidebar.selectbox(
     )
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
-
+if selected_side == "汎用":
+    appset = appset_nomal
+elif selected_side == "犬":
+    appset = appset_dog
+elif selected_side == "猫":
+    appset = appset_cat
+else:
+    appset = appset_nomal
 
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state and a==0:
     st.session_state["messages"] = [
-        {"role": "system", "content": appset_dog}
+        {"role": "system", "content": appset_nomal}
+        ]
+
+if "messages" not in st.session_state and a==1:
+    st.session_state["messages"] = [
+        {"role": "system", "content": appset}
         ]
 
 
