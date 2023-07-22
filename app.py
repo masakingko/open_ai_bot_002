@@ -88,9 +88,9 @@ if st.session_state["messages"]:
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
-        if message["role"]=="assistant" and selected_side == "犬":
+        if message["role"]=="assistant" and selcted_animal == "犬":
             speaker="🐶"
-        if message["role"]=="assistant" and selected_side == "猫":
+        if message["role"]=="assistant" and selcted_animal == "猫":
             speaker="😺"
         elif message["role"]=="assistant":
             speaker="🤖"
