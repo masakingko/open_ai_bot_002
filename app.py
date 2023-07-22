@@ -31,7 +31,7 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    st.title("AI Assistant"+str(selected_side))
+    st.title("AI Assistant"+speaker)
 
     
 # ---------- サイドバー ----------
