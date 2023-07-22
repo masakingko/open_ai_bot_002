@@ -10,9 +10,17 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
 # モデルのコールバック関数
 def update_appset():
+    if selected_side == "汎用":
+        appset = appset_nomal
+    elif selected_side == "犬":
+        appset = appset_dog
+    else:
+        appset = appset_nomal
+    
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
+    
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
@@ -32,12 +40,7 @@ selected_side = st.sidebar.selectbox(
     )
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
-if selected_side == "汎用":
-    appset = appset_nomal
-elif selected_side == "犬":
-    appset = appset_dog
-else:
-    appset = appset_nomal
+
 
 
 # st.session_stateを使いメッセージのやりとりを保存
