@@ -48,7 +48,7 @@ selected_side = st.sidebar.selectbox(
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 # ----------　モデルの決定　----------
-st.sidebar.button('決定', on_click=update_appset, args='selcted_animal', ))
+st.sidebar.button('決定', on_click=update_appset, args='selcted_animal')
 
 
 
