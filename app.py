@@ -33,6 +33,7 @@ def update_appset(selcted_animal):
     st.session_state["messages"] = [
     {"role": "system", "content": appset}
     ]
+    st.session_state.role = speaker_role
 
     
 # ---------- サイドバー ----------
@@ -63,6 +64,7 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = [
         {"role": "system", "content": appset_nomal}
         ]
+    st.session_state.role = "🤖"
 
 
 # チャットボットとやりとりする関数
@@ -85,7 +87,7 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-st.title("AI Assistant　🤖　🐶　😺　🐰　🐘")
+st.title("AI Assistant　🤖　🐶　😺　🐰　🐘" + st.session_state.role)
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
