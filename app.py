@@ -18,7 +18,7 @@ def update_appset(selcted_animal):
         appset = appset_dog
         speaker_role = "🐶"
     elif selcted_animal == "猫":
-        appset_role = appset_cat
+        appset = appset_cat
         speaker_role = "😺"
     elif selcted_animal == "兎":
         appset = appset_rabbit
@@ -33,6 +33,8 @@ def update_appset(selcted_animal):
     st.session_state["messages"] = [
     {"role": "system", "content": appset}
     ]
+
+    st.title("AI Assistant" + speaker_role)
 
     
 # ---------- サイドバー ----------
