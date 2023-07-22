@@ -9,12 +9,6 @@ appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 
-st.session_state["messages"] = [
-    {"role": "system", "content": appset_nomal}
-    ]
-
-
-
 a = 0
 
 # モデルのコールバック関数
@@ -60,7 +54,7 @@ st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state and a==0:
     st.session_state["messages"] = [
-        {"role": "system", "content": appset}
+        {"role": "system", "content": appset_nomal}
         ]
 
 
