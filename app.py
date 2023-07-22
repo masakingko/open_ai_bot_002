@@ -8,7 +8,7 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
-a = 1
+a = 0
 
 # モデルのコールバック関数
 def update_appset():
