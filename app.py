@@ -14,18 +14,21 @@ appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
 
 # モデルのコールバック関数
 def update_appset(selcted_animal):
-    if selcted_animal == "汎用":
-        appset = appset_nomal
-    elif selcted_animal == "犬":
+    if selcted_animal == "犬":
         appset = appset_dog
+        speaker = "🐶"
     elif selcted_animal == "猫":
         appset = appset_cat
+        speaker = "😺"
     elif selcted_animal == "兎":
         appset = appset_rabbit
+        speaker = "🐰"
     elif selcted_animal == "象":
         appset = appset_elephant
+        speaker = "🐘"
     else:
         appset = appset_nomal
+        speaker = "🤖"
 
     st.session_state["messages"] = [
     {"role": "system", "content": appset}
@@ -98,15 +101,15 @@ if st.session_state["messages"]:
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant" and str(selected_side) == "犬":
-            speaker="🐶"
+            speaker = "🐶"
         elif message["role"]=="assistant" and str(selected_side) == "猫":
-            speaker="😺"
+            speaker = "😺"
         elif message["role"]=="assistant" and str(selected_side) == "兎":
-            speaker="🐰"
+            speaker = "🐰"
         elif message["role"]=="assistant" and str(selected_side) == "象":
-            speaker="🐘"
+            speaker = "🐘"
         elif message["role"]=="assistant":
-            speaker="🤖"
+            speaker = "🤖"
 
         st.write(speaker + ": " + message["content"])
 
