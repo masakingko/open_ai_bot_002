@@ -8,6 +8,11 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
+# モデルのコールバック関数
+def update_appset():
+    st.session_state["messages"] = [
+        {"role": "system", "content": appset}
+        ]
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
@@ -22,7 +27,8 @@ df_side = pd.DataFrame({
     })
 selected_side = st.sidebar.selectbox(
     "どの設定を選びますか？",
-    df_side["animal"]
+    df_side["animal"],
+    on_change=update_appset
     )
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
