@@ -37,7 +37,7 @@ def update_appset(selcted_animal):
 
     
 # ---------- サイドバー ----------
-st.sidebar.title("st.sidebar")
+st.sidebar.title("設定")
 
 
 # ----------　モデルの選択　----------
