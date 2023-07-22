@@ -16,19 +16,19 @@ appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
 def update_appset(selcted_animal):
     if selcted_animal == "犬":
         appset = appset_dog
-        speaker = "🐶"
+        speaker_role = "🐶"
     elif selcted_animal == "猫":
-        appset = appset_cat
-        speaker = "😺"
+        appset_role = appset_cat
+        speaker_role = "😺"
     elif selcted_animal == "兎":
         appset = appset_rabbit
-        speaker = "🐰"
+        speaker_role = "🐰"
     elif selcted_animal == "象":
         appset = appset_elephant
-        speaker = "🐘"
+        speaker_role = "🐘"
     else:
         appset = appset_nomal
-        speaker = "🤖"
+        speaker_role = "🤖"
 
     st.session_state["messages"] = [
     {"role": "system", "content": appset}
@@ -88,7 +88,7 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-st.title("AI Assistant" + speaker)
+st.title("AI Assistant" + speaker_role)
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
