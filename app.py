@@ -94,7 +94,7 @@ def communicate():
 if a == 1:
     st.title("AI Assistant" + speaker_role)
     b = 1
-if b == 1
+if b == 1:
     st.title("AI Assistant" + speaker_role)
 st.write("ChatGPT APIを使ったチャットボットです。")
 
