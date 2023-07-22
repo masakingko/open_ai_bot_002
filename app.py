@@ -4,6 +4,7 @@ import pandas as pd
 import openai
 
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
+# 各種プロンプト設定の取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
@@ -11,7 +12,7 @@ appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 appset_rabbit = st.secrets.AppSettings.chatbot_setting_rabbit
 appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
 
-# モデルのコールバック関数
+# モデル（プロンプト）のコールバック関数
 def update_appset(selcted_animal):
     if selcted_animal == "犬":
         appset = appset_dog
@@ -51,10 +52,10 @@ selected_side = st.sidebar.selectbox(
     df_side["animal"],
     key='selcted_animal'
     )
-st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
-
 # ----------　モデルの決定　----------
 st.sidebar.button('決定', on_click=update_appset, args=(st.session_state['selcted_animal'],))
+
+st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 
 # st.session_stateを使いメッセージのやりとりを保存
@@ -80,7 +81,6 @@ def communicate():
     bot_message = response["choices"][0]["message"]
     messages.append(bot_message)
     
-
     st.session_state["user_input"] = ""  # 入力欄を消去
 
 
