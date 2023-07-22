@@ -10,16 +10,15 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 
 a = 0
 
-if selected_side == "汎用":
-    appset = appset_nomal
-elif selected_side == "犬":
-    appset = appset_dog
-else:
-    appset = appset_nomal
-
 # モデルのコールバック関数
 def update_appset():
 
+    if selected_side == "汎用":
+        appset = appset_nomal
+    elif selected_side == "犬":
+        appset = appset_dog
+    else:
+        appset = appset_nomal
     
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
