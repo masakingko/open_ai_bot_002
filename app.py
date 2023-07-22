@@ -34,8 +34,6 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    st.title("AI Assistant"+speaker)
-
     
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
@@ -90,7 +88,7 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-st.title("AI Assistant")
+st.title("AI Assistant" + speaker)
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
