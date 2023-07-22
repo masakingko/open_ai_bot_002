@@ -48,7 +48,7 @@ st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 
 # st.session_stateを使いメッセージのやりとりを保存
-if "messages" not in st.session_state and a=0:
+if "messages" not in st.session_state and a==0:
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
