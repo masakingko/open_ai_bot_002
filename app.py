@@ -16,9 +16,9 @@ def update_appset():
     if selected_side == "汎用":
         appset = appset_nomal
     elif selected_side == "犬":
-        appset = appset_cat
-    elif selected_side == "猫":
         appset = appset_dog
+    elif selected_side == "猫":
+        appset = appset_cat
     else:
         appset = appset_nomal
     
