@@ -39,9 +39,6 @@ def update_appset(selcted_animal):
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
 
-# ---------- temperatureの設定 ----------
-y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=0.7)
-st.sidebar.write("値が高いほどランダム性が増します")
 
 # ----------　モデルの選択　----------
 df_side = pd.DataFrame({
@@ -49,14 +46,17 @@ df_side = pd.DataFrame({
     "color": ["赤", "青", "黄", "白", "黒"]
     })
 selected_side = st.sidebar.selectbox(
-    "どの設定を選びますか？",
+    "誰と話がしたいですか？",
     df_side["animal"],
     key='selcted_animal'
     )
 # ----------　モデルの決定　----------
 st.sidebar.button('決定', on_click=update_appset, args=(st.session_state['selcted_animal'],))
+st.sidebar.write("")
 
-st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
+
+# ---------- temperatureの設定 ----------
+y = st.sidebar.slider(label='temperature（値が高いほどランダム性が増します）', min_value=0.0, max_value=2.0, value=0.7)
 
 
 # st.session_stateを使いメッセージのやりとりを保存
@@ -99,17 +99,6 @@ if st.session_state["messages"]:
         speaker = "🙂"
         if message["role"]=="assistant":
             speaker = str(st.session_state.role)
-        
-        # if message["role"]=="assistant" and str(selected_side) == "犬":
-        #     speaker = "🐶"
-        # elif message["role"]=="assistant" and str(selected_side) == "猫":
-        #     speaker = "😺"
-        # elif message["role"]=="assistant" and str(selected_side) == "兎":
-        #     speaker = "🐰"
-        # elif message["role"]=="assistant" and str(selected_side) == "象":
-        #     speaker = "🐘"
-        # elif message["role"]=="assistant":
-        #     speaker = "🤖"
 
         st.write(speaker + ": " + message["content"])
 
