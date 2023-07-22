@@ -38,7 +38,7 @@ def update_appset(selcted_animal):
     
 # ---------- サイドバー ----------
 st.sidebar.title("設定")
-
+st.sidebar.write("")
 
 # ----------　モデルの選択　----------
 df_side = pd.DataFrame({
@@ -52,6 +52,7 @@ selected_side = st.sidebar.selectbox(
     )
 # ----------　モデルの決定　----------
 st.sidebar.button('決定', on_click=update_appset, args=(st.session_state['selcted_animal'],))
+st.sidebar.write("")
 st.sidebar.write("")
 
 
@@ -75,9 +76,9 @@ def communicate():
     messages.append(user_message)
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages,
-        temperature=y
+        model　=　"gpt-3.5-turbo",
+        messages　=　messages,
+        temperature　=　y
     )  
 
     bot_message = response["choices"][0]["message"]
