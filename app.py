@@ -8,6 +8,9 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
+appset_cat = st.secrets.AppSettings.chatbot_setting_rabbit
+appset_cat = st.secrets.AppSettings.chatbot_setting_elephant
+
 
 # モデルのコールバック関数
 def update_appset(selcted_animal):
@@ -16,6 +19,10 @@ def update_appset(selcted_animal):
     elif selcted_animal == "犬":
         appset = appset_dog
     elif selcted_animal == "猫":
+        appset = appset_cat
+    elif selcted_animal == "兎":
+        appset = appset_cat
+    elif selcted_animal == "象":
         appset = appset_cat
     else:
         appset = appset_nomal
@@ -92,6 +99,10 @@ if st.session_state["messages"]:
             speaker="🐶"
         elif message["role"]=="assistant" and str(selected_side) == "猫":
             speaker="😺"
+        elif message["role"]=="assistant" and str(selected_side) == "猫":
+            speaker="🐰"
+        elif message["role"]=="assistant" and str(selected_side) == "猫":
+            speaker="🐘"
         elif message["role"]=="assistant":
             speaker="🤖"
 
