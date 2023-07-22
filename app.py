@@ -10,7 +10,7 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 appset_rabbit = st.secrets.AppSettings.chatbot_setting_rabbit
 appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
-a = 0
+speaker_role = "🤖"
 
 # モデルのコールバック関数
 def update_appset(selcted_animal):
@@ -34,7 +34,6 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    st.title("AI Assistant" + speaker_role)
     a = 1
 
     
@@ -91,9 +90,8 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-if a == 1 or b == 1:
+if a == 1:
     st.title("AI Assistant" + speaker_role)
-    b = 1
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
