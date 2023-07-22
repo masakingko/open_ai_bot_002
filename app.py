@@ -22,6 +22,10 @@ def update_appset():
     else:
     appset = appset_nomal
 
+    st.session_state["messages"] = [
+    {"role": "system", "content": appset}
+    ]
+
     a = 1
     
 # ---------- サイドバー ----------
