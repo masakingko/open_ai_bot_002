@@ -23,6 +23,9 @@ def update_appset():
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
+    st.session_state["messages"] = [
+        {"role": "system", "content": appset}
+        ]
 
     a = 1
     
