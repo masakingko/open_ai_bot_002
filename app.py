@@ -13,6 +13,15 @@ a = 0
 
 # モデルのコールバック関数
 def update_appset():
+    if selcted_animal == "汎用":
+        appset = appset_nomal
+    elif selcted_animal == "犬":
+        appset = appset_dog
+    elif selcted_animal == "猫":
+        appset = appset_cat
+    else:
+    appset = appset_nomal
+
     a = 1
     
 # ---------- サイドバー ----------
@@ -22,7 +31,7 @@ st.sidebar.title("st.sidebar")
 y = st.sidebar.slider(label='temperature', min_value=0.0, max_value=2.0, value=0.7)
 st.sidebar.write("値が高いほどランダム性が増します")
 
-# ----------　モデルの設定　----------
+# ----------　モデルの選択　----------
 df_side = pd.DataFrame({
     "animal": ["汎用", "犬", "猫", "兎", "象"],
     "color": ["赤", "青", "黄", "白", "黒"]
@@ -30,29 +39,20 @@ df_side = pd.DataFrame({
 selected_side = st.sidebar.selectbox(
     "どの設定を選びますか？",
     df_side["animal"],
-    on_change=update_appset
+    key='selcted_animal'
     )
 st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
-if selected_side == "汎用":
-    appset = appset_nomal
-elif selected_side == "犬":
-    appset = appset_dog
-elif selected_side == "猫":
-    appset = appset_cat
-else:
-    appset = appset_nomal
+# ----------　モデルの決定　----------
+st.sidebar.button('決定', on_click=update_appset, args='selcted_animal', ))
+
+
 
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state and a==0:
     st.session_state["messages"] = [
         {"role": "system", "content": appset_nomal}
-        ]
-
-if "messages" not in st.session_state and a==1:
-    st.session_state["messages"] = [
-        {"role": "system", "content": appset}
         ]
 
 
