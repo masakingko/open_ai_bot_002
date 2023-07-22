@@ -24,7 +24,7 @@ def update_appset():
         appset = appset_nomal
     
     st.session_state["messages"] = [
-        {"role": "system", "content": appset}
+        {"role": "system", "content": appset_cat}
         ]
 
     a = 1
