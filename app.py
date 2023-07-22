@@ -16,6 +16,8 @@ def update_appset():
     if selected_side == "汎用":
         appset = appset_nomal
     elif selected_side == "犬":
+        appset = appset_cat
+    elif selected_side == "猫":
         appset = appset_dog
     else:
         appset = appset_nomal
@@ -91,6 +93,8 @@ if st.session_state["messages"]:
         speaker = "🙂"
         if message["role"]=="assistant" and selected_side == "犬":
             speaker="🐶"
+        if message["role"]=="assistant" and selected_side == "猫":
+            speaker="😺"
         elif message["role"]=="assistant":
             speaker="🤖"
 
