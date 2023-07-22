@@ -20,7 +20,7 @@ def update_appset():
     elif selcted_animal == "猫":
         appset = appset_cat
     else:
-    appset = appset_nomal
+        appset = appset_nomal
 
     st.session_state["messages"] = [
     {"role": "system", "content": appset}
