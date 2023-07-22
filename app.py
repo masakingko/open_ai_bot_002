@@ -99,9 +99,9 @@ if st.session_state["messages"]:
             speaker="🐶"
         elif message["role"]=="assistant" and str(selected_side) == "猫":
             speaker="😺"
-        elif message["role"]=="assistant" and str(selected_side) == "猫":
+        elif message["role"]=="assistant" and str(selected_side) == "兎":
             speaker="🐰"
-        elif message["role"]=="assistant" and str(selected_side) == "猫":
+        elif message["role"]=="assistant" and str(selected_side) == "象":
             speaker="🐘"
         elif message["role"]=="assistant":
             speaker="🤖"
