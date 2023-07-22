@@ -34,7 +34,7 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    a = a.append(1)
+    a.append(1)
 
     
 # ---------- サイドバー ----------
