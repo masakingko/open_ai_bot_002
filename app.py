@@ -10,7 +10,7 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 appset_rabbit = st.secrets.AppSettings.chatbot_setting_rabbit
 appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
-
+speaker_role = "🤖"
 
 # モデルのコールバック関数
 def update_appset(selcted_animal):
