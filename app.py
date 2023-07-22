@@ -12,7 +12,7 @@ appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 a = 0
 
 # モデルのコールバック関数
-def update_appset():
+def update_appset(selcted_animal):
     if selcted_animal == "汎用":
         appset = appset_nomal
     elif selcted_animal == "犬":
