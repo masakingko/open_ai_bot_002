@@ -90,7 +90,7 @@ if st.session_state["messages"]:
         speaker = "🙂"
         if message["role"]=="assistant" and str(selected_side) == "犬":
             speaker="🐶"
-        if message["role"]=="assistant" and str(selected_side) == "猫":
+        elif message["role"]=="assistant" and str(selected_side) == "猫":
             speaker="😺"
         elif message["role"]=="assistant":
             speaker="🤖"
