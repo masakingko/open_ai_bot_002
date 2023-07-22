@@ -7,6 +7,8 @@ import openai
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
+appset_cat = st.secrets.AppSettings.chatbot_setting_cat
+
 
 a = 0
 
