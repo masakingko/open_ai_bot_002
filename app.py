@@ -9,8 +9,6 @@ appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 
-a = 0
-
 # モデルのコールバック関数
 def update_appset(selcted_animal):
     if selcted_animal == "汎用":
@@ -26,7 +24,6 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    a = 1
     
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
@@ -54,7 +51,7 @@ st.sidebar.button('決定', on_click=update_appset, args=(st.session_state['selc
 
 
 # st.session_stateを使いメッセージのやりとりを保存
-if "messages" not in st.session_state and a==0:
+if "messages" not in st.session_state:
     st.session_state["messages"] = [
         {"role": "system", "content": appset_nomal}
         ]
