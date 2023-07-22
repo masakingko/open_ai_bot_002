@@ -10,7 +10,6 @@ appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 appset_rabbit = st.secrets.AppSettings.chatbot_setting_rabbit
 appset_elephant = st.secrets.AppSettings.chatbot_setting_elephant
-a = []
 
 # モデルのコールバック関数
 def update_appset(selcted_animal):
@@ -34,8 +33,6 @@ def update_appset(selcted_animal):
     {"role": "system", "content": appset}
     ]
 
-    a.append(1)
-
     
 # ---------- サイドバー ----------
 st.sidebar.title("st.sidebar")
@@ -58,8 +55,6 @@ st.sidebar.write("あなたは" + str(selected_side) + "を選びました！")
 
 # ----------　モデルの決定　----------
 st.sidebar.button('決定', on_click=update_appset, args=(st.session_state['selcted_animal'],))
-
-
 
 
 # st.session_stateを使いメッセージのやりとりを保存
@@ -90,8 +85,7 @@ def communicate():
 
 
 # ---　ユーザーインターフェイスの構築　---
-if len(a) >= 1:
-    st.title("AI Assistant" + speaker_role)
+st.title("AI Assistant　🐶　😺　🐰　🐘　🤖)
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
