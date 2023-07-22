@@ -9,6 +9,11 @@ appset_nomal = st.secrets.AppSettings.chatbot_setting
 appset_dog = st.secrets.AppSettings.chatbot_setting_dog
 appset_cat = st.secrets.AppSettings.chatbot_setting_cat
 
+st.session_state["messages"] = [
+    {"role": "system", "content": appset_nomal}
+    ]
+
+
 
 a = 0
 
@@ -24,9 +29,6 @@ def update_appset():
     else:
         appset = appset_nomal
     
-    st.session_state["messages"] = [
-        {"role": "system", "content": appset}
-        ]
     st.session_state["messages"] = [
         {"role": "system", "content": appset}
         ]
