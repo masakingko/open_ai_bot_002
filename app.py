@@ -87,12 +87,12 @@ def communicate():
     
     st.session_state["user_input"] = ""  # 入力欄を消去
 
-result_area = st.empty()
-text = ''
-for chunk in response:
-    next = chunk['choices'][0]['delta'].get('content', '')
-    text += next
-    result_area.write(text)
+    result_area = st.empty()
+    text = ''
+    for chunk in response:
+        next = chunk['choices'][0]['delta'].get('content', '')
+        text += next
+        result_area.write(text)
 
 
 # ---　ユーザーインターフェイスの構築　---
