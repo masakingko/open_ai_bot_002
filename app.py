@@ -87,7 +87,7 @@ def communicate():
     
     st.session_state["user_input"] = ""  # 入力欄を消去
 
-result_area = streamlit.empty()
+result_area = st.empty()
 text + ''
 for chunk in completion:
     next = chunk['choices'][0]['delta'].get('content', '')
