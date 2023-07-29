@@ -79,12 +79,20 @@ def communicate():
         model="gpt-3.5-turbo",
         messages=messages,
         temperature=y,
+        stream=True
     )  
 
     bot_message = response["choices"][0]["message"]
     messages.append(bot_message)
     
     st.session_state["user_input"] = ""  # 入力欄を消去
+
+result_area = streamlit.emptyh()
+text + ''
+for chunk in completion:
+    next = chunk['choices'][0]['delta'].get('content', '')
+    text += next
+    result_area.write(text)
 
 
 # ---　ユーザーインターフェイスの構築　---
@@ -94,7 +102,7 @@ st.write("ChatGPT APIを使ったチャットボットです。")
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
-    messages = st.session_state["messages"]+"あああ"
+    messages = st.session_state["messages"]
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
