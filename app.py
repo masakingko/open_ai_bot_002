@@ -89,7 +89,7 @@ def communicate():
 
 result_area = st.empty()
 text = ''
-for chunk in completion:
+for chunk in response:
     next = chunk['choices'][0]['delta'].get('content', '')
     text += next
     result_area.write(text)
