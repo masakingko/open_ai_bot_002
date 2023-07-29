@@ -99,7 +99,7 @@ if st.session_state["messages"]:
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant":
-            speaker = str(st.session_state.role)
+            speaker = str(st.session_state.role)+"あ"
 
         st.write(speaker + ": " + message["content"])
 
