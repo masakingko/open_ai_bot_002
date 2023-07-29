@@ -94,12 +94,12 @@ st.write("ChatGPT APIを使ったチャットボットです。")
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
-    messages = st.session_state["messages"]
+    messages = st.session_state["messages"]+"あああ"
 
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant":
-            speaker = str(st.session_state.role)+"あ"
+            speaker = str(st.session_state.role)
 
         st.write(speaker + ": " + message["content"])
 
