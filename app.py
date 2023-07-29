@@ -87,12 +87,7 @@ def communicate():
     
     st.session_state["user_input"] = ""  # 入力欄を消去
 
-    result_area = st.empty()
-    text = ''
-    for chunk in response:
-        next = chunk['choices'][0]['delta'].get('content', '')
-        text += next
-        result_area.write(text)
+
 
 
 # ---　ユーザーインターフェイスの構築　---
@@ -110,5 +105,12 @@ if st.session_state["messages"]:
             speaker = str(st.session_state.role)
 
         st.write(speaker + ": " + message["content"])
+
+result_area = st.empty()
+text = ''
+for chunk in response:
+    next = chunk['choices'][0]['delta'].get('content', '')
+    text += next
+    result_area.write(text)
 
 
